@@ -6,8 +6,8 @@
     <soapenv:Body>
         <acc:AccuLadenRequest>
             <Vermogen>10</Vermogen>
-            <Duur>20</Duur>
-            <procent>20</procent>
+            <Duur>200</Duur>
+            <procent>10</procent>
         </acc:AccuLadenRequest>
     </soapenv:Body>
 </soapenv:Envelope>
@@ -15,12 +15,13 @@
 <!--Response 1-->
 
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
-<S:Body>
-    <ns4:AccuLadenResponse xmlns:ns2="http://dylangomezvazquez/AccuLadenError" xmlns:ns3="http://dylangomezvazquez/AccuLadenRequest" xmlns:ns4="http://dylangomezvazquez/AccuLadenResponse">
-        <result>De accu heeft heeft een vermogen van 10 Ampere,
-            de accu heeft momenteel nog 20 procent over opladen bij het huidige tankstation duurt: 20 minuten</result>
-    </ns4:AccuLadenResponse>
-</S:Body>
+   <S:Body>
+      <ns4:AccuLadenResponse xmlns:ns2="http://dylangomezvazquez/AccuLadenError" xmlns:ns3="http://dylangomezvazquez/AccuLadenRequest" xmlns:ns4="http://dylangomezvazquez/AccuLadenResponse">
+         <result>De accu heeft heeft een vermogen van 10 Ampére, 
+ de accu heeft momenteel nog 10.0 procent over. De batterij heeft een voltage van 200 volt 
+opladen van 0 tot 100% duurt: 1 uur het opladen tot 100% met de huidige lading duurt: 0.0 uur</result>
+      </ns4:AccuLadenResponse>
+   </S:Body>
 </S:Envelope>
 
 <!--Request 2-->
