@@ -1,0 +1,146 @@
+<!--De vijf Soap berichten -->
+
+<!--Request 1-->
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://dylangomezvazquez/AccuLadenRequest">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <acc:AccuLadenRequest>
+            <Vermogen>10</Vermogen>
+            <Duur>20</Duur>
+            <procent>20</procent>
+        </acc:AccuLadenRequest>
+    </soapenv:Body>
+</soapenv:Envelope>
+
+<!--Response 1-->
+
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+<S:Body>
+    <ns4:AccuLadenResponse xmlns:ns2="http://dylangomezvazquez/AccuLadenError" xmlns:ns3="http://dylangomezvazquez/AccuLadenRequest" xmlns:ns4="http://dylangomezvazquez/AccuLadenResponse">
+        <result>De accu heeft heeft een vermogen van 10 Ampere,
+            de accu heeft momenteel nog 20 procent over opladen bij het huidige tankstation duurt: 20 minuten</result>
+    </ns4:AccuLadenResponse>
+</S:Body>
+</S:Envelope>
+
+<!--Request 2-->
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://dylangomezvazquez/AccuLadenRequest">
+<soapenv:Header/>
+<soapenv:Body>
+    <acc:AccuLadenRequest>
+        <Vermogen>tekst</Vermogen>
+        <Duur>tekst</Duur>
+        <procent>tekst</procent>
+    </acc:AccuLadenRequest>
+</soapenv:Body>
+</soapenv:Envelope>
+
+<!--Response 2-->
+
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+<S:Body>
+    <S:Fault xmlns:ns4="http://www.w3.org/2003/05/soap-envelope">
+        <faultcode>S:Server</faultcode>
+        <faultstring>Meegegeven accu gegevens zijn niet goed</faultstring>
+        <detail>
+            <ns2:ApplicatieFout xmlns:ns2="http://dylangomezvazquez/AccuLadenError" xmlns:ns3="http://dylangomezvazquez/AccuLadenRequest" xmlns:ns4="http://dylangomezvazquez/AccuLadenResponse">
+                <ns2:errorCode>404</ns2:errorCode>
+                <ns2:message>Values not accepted</ns2:message>
+            </ns2:ApplicatieFout>
+        </detail>
+    </S:Fault>
+</S:Body>
+</S:Envelope>
+
+
+<!--Request 3-->
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://dylangomezvazquez/AccuLadenRequest">
+<soapenv:Header/>
+<soapenv:Body>
+    <acc:AccuLadenRequest>
+        <Vermogen>10</Vermogen>
+        <Duur>te</Duur>
+        <procent>h</procent>
+    </acc:AccuLadenRequest>
+</soapenv:Body>
+</soapenv:Envelope>
+
+<!--Response 3-->
+
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+<S:Body>
+    <S:Fault xmlns:ns4="http://www.w3.org/2003/05/soap-envelope">
+        <faultcode>S:Server</faultcode>
+        <faultstring>Meegegeven accu gegevens zijn niet goed</faultstring>
+        <detail>
+            <ns2:ApplicatieFout xmlns:ns2="http://dylangomezvazquez/AccuLadenError" xmlns:ns3="http://dylangomezvazquez/AccuLadenRequest" xmlns:ns4="http://dylangomezvazquez/AccuLadenResponse">
+                <ns2:errorCode>404</ns2:errorCode>
+                <ns2:message>Values not accepted</ns2:message>
+            </ns2:ApplicatieFout>
+        </detail>
+    </S:Fault>
+</S:Body>
+</S:Envelope>
+
+<!--Request 4-->
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://dylangomezvazquez/AccuLadenRequest">
+<soapenv:Header/>
+<soapenv:Body>
+    <acc:AccuLadenRequest>
+        <Vermogen>10</Vermogen>
+        <Duur>10</Duur>
+        <procent>h</procent>
+    </acc:AccuLadenRequest>
+</soapenv:Body>
+</soapenv:Envelope>
+
+<!--Response 4-->
+
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+<S:Body>
+    <S:Fault xmlns:ns4="http://www.w3.org/2003/05/soap-envelope">
+        <faultcode>S:Server</faultcode>
+        <faultstring>Meegegeven accu gegevens zijn niet goed</faultstring>
+        <detail>
+            <ns2:ApplicatieFout xmlns:ns2="http://dylangomezvazquez/AccuLadenError" xmlns:ns3="http://dylangomezvazquez/AccuLadenRequest" xmlns:ns4="http://dylangomezvazquez/AccuLadenResponse">
+                <ns2:errorCode>404</ns2:errorCode>
+                <ns2:message>Values not accepted</ns2:message>
+            </ns2:ApplicatieFout>
+        </detail>
+    </S:Fault>
+</S:Body>
+</S:Envelope>
+
+<!--Request 5 procent boven 100-->
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://dylangomezvazquez/AccuLadenRequest">
+<soapenv:Header/>
+<soapenv:Body>
+    <acc:AccuLadenRequest>
+        <Vermogen>1000</Vermogen>
+        <Duur>1200</Duur>
+        <procent>101</procent>
+    </acc:AccuLadenRequest>
+</soapenv:Body>
+</soapenv:Envelope>
+
+<!--Response 5-->
+
+
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+<S:Body>
+    <S:Fault xmlns:ns4="http://www.w3.org/2003/05/soap-envelope">
+        <faultcode>S:Server</faultcode>
+        <faultstring>Meegegeven accu gegevens zijn niet goed</faultstring>
+        <detail>
+            <ns2:ApplicatieFout xmlns:ns2="http://dylangomezvazquez/AccuLadenError" xmlns:ns3="http://dylangomezvazquez/AccuLadenRequest" xmlns:ns4="http://dylangomezvazquez/AccuLadenResponse">
+                <ns2:errorCode>404</ns2:errorCode>
+                <ns2:message>Values not accepted</ns2:message>
+            </ns2:ApplicatieFout>
+        </detail>
+    </S:Fault>
+</S:Body>
+</S:Envelope>
