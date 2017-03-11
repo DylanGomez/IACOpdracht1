@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://dylangomezvazquez/AccuLadenRequest">
+    <xs:annotation>
+        <xs:appinfo>ChargeDocs</xs:appinfo>
+        <xs:documentation xml:lang="nl">
+            Voor dit voorbeeld ga ik een SOAP service bouwen voor het simuleren
+            van het laden en ontladen van een accu.
+            Hiervoor heb ik de volgende waarden nodig die nodig zijn in het XML:
+
+            - Accudata (hoeveel vermogen heeft de accu, hoe lang kan deze mee en hoeveel ampere heeft de accu)
+            - Hoeveelheid accu over
+            - Laadstation(hoe lang duurt het voordat de accu vol opgeladen kan worden)
+        </xs:documentation>
+    </xs:annotation>
+    <xs:complexType name="Accu">
+    	<xs:sequence>
+	        <xs:element name="AccuVermogen">
+	            <xs:simpleType>
+	                <xs:restriction base="xs:string">
+	                    <xs:enumeration value="100 Watt"/>
+	                    <xs:enumeration value="200 Watt"/>
+	                    <xs:enumeration value="300 Watt"/>
+	                    <xs:enumeration value="400 Watt"/>
+	                </xs:restriction>
+	            </xs:simpleType>
+	        </xs:element>
+
+		    <xs:element name="AccuDuur">
+		        <xs:simpleType>
+		            <xs:restriction base="xs:integer">
+		                <xs:minExclusive value="0"/>
+		                <xs:maxExclusive value="240"/>
+		            </xs:restriction>
+		        </xs:simpleType>
+		    </xs:element>
+
+	        <xs:element name="AccuProcent">
+	            <xs:simpleType>
+	                <xs:restriction base="xs:integer">
+	                    <xs:minExclusive value="0"/>
+	                    <xs:maxExclusive value="100"/>
+	                </xs:restriction>
+	            </xs:simpleType>
+	        </xs:element>
+	    </xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Laadstation">
+        <xs:element name="laadstationVermogen">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="100 Watt per uur"/>
+                    <xs:enumeration value="200 Watt per uur"/>
+                    <xs:enumeration value="300 Watt per uur"/>
+                    <xs:enumeration value="400 Watt per uur"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:element>
+    </xs:complexType>
+</xs:schema>
+
